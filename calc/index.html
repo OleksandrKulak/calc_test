@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE*edge">
+	<meta charset="utf-8">
+	<meta name="Main_calculator" content="calculator">
+	<meta name="viewport" content="width=devive-widt, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+	<title>HomeWorkСalculator</title>
+</head>
+<body>
+	<section class="hero">
+		<div class="calculator">
+			<div class="calc-display">
+				<ul class="control-list">
+					<li class="control-item">
+						<button class="btn collapse"></button>
+					</li>
+					<li class="control-item">
+						<button class="btn deploy"></button>
+					</li>
+					<li class="control-item">
+						<button class="btn close"></button>
+					</li>
+				</ul>
+				<div class="calc-screen">
+					<p>0</p>
+				</div>	
+			</div>
+			<ul class="control-buttons-list">
+				<li class="grid-calc-buttons first-operator">
+					<button id="ac" class="btn-operator ac" onclick="clearAll()">AC</button>
+				</li>
+				<li class="grid-calc-buttons first-operator">
+					<button class="btn-operator plusmn">&plusmn</button>
+				</li>
+				<li class="grid-calc-buttons first-operator">
+					<button class="btn-operator persent">%</button>
+				</li>
+				<li class="grid-calc-buttons right-side-operator">
+					<button class="btn-operator divide">&divide</button>
+				</li>
+				<li class="grid-calc-buttons number">
+					<button class="btn-operator seven">7</button>
+				</li>
+				<li class="grid-calc-buttons number">
+					<button class="btn-operator eight">8</button>
+				</li>
+				<li class="grid-calc-buttons number">
+					<button class="btn-operator nine">9</button>
+				</li>
+				<li class="grid-calc-buttons right-side-operator">
+					<button class="btn-operator">&times</button>
+				</li>
+				<li class="grid-calc-buttons number">
+					<button class="btn-operator four">4</button>
+				</li>
+				<li class="grid-calc-buttons number">
+					<button class="btn-operator five">5</button>
+				</li>
+				<li class="grid-calc-buttons number">
+					<button class="btn-operator six">6</button>
+				</li>
+				<li class="grid-calc-buttons right-side-operator">
+					<button class="btn-operator minus">-</button>
+				</li>
+				<li class="grid-calc-buttons number">
+					<button class="btn-operator one">1</button>
+				</li>
+				<li class="grid-calc-buttons number">
+					<button class="btn-operator two">2</button>
+				</li>
+				<li class="grid-calc-buttons number">
+					<button class="btn-operator three">3</button>
+				</li>
+				<li class="grid-calc-buttons right-side-operator">
+					<button class="btn-operator">+</button>
+				</li>
+				<li class="grid-calc-buttons number">
+					<button class="btn-operator zero">0</button>
+				</li>
+				<li class="grid-calc-buttons number">
+					<button class="btn-operator comma">,</button>
+				</li>
+				<li class="grid-calc-buttons right-side-operator">
+					<button class="btn-operator equal">=</button>
+				</li>
+			</ul>
+		</div>
+	</section>
+	<script src="js/script.js"></script>
+</body>
+</html>
