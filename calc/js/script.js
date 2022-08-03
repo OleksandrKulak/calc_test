@@ -2,35 +2,81 @@ window.onload = () => {
   let a = '';
   let b = '';
   let sign = ''; // +,-,*,/,=,+/-
-  const finish = false;
+  let finish = false;
 
   const digit = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ','];
-  const action = ['-', '+', '&times', '&divide'];
+  const action = ['-', '+', '&times', '&divide',];
 
   const out = document.querySelector('.calc-screen p');
 
   const clearAll = () => {
-      a = '';
-      b = '';
-      sign = '';
-      finish = false;
-      out.textContent = '0';
-    };
-  document.querySelector('.ac').onclick = clearAll;
-  console.log(clearAll);
-  document.querySelector('control-buttons-list').onclick = (event) => {
-    if (!event.target.classList.contains('btn-operator')) {
-      return;
-    }
-    else if (!event.target.classList.contains('.ac')) {
-      return;
-    }
+    a = '';
+    b = '';
+    sign = '';
+    finish = false;
+    out.textContent = 0;
+  };
 
-    out.textContent = '';
-    const key = event.target.textContent;
-    if (digit.includens(key)) {
-      a += key;
-      console.log(a, b, sign);  
-    }
-  }
+  document.querySelector('.ac').onclick = clearAll;
+
+  const btnOperators = document.querySelectorAll('.btn-operator');
+
+  btnOperators.forEach(btnOperator => {
+    btnOperator.addEventListener('click', event => {
+      const key = event.target.textContent; 
+
+      if (digit.includes(key)) {
+        if (b === '' && sign === '') {
+          a += key;
+          out.textContent = a;
+        }
+        else if (a !== '' && b !== '' && finish) {
+          b = key;
+          finish = false;
+          out.textContent = b;
+        }
+        else {
+          b += key;
+          out.textContent = b;
+        }
+        return;
+      }
+
+      else if (action.includes(key)) {
+        sign = key;
+        out.textContent = sign;
+        console.log(a, b, sign);
+      }
+
+      else if (key === '=') {
+        if (b === '') {
+          b = a;
+        }
+        switch (sign) {
+          case '+': 
+            a = (+a) + (+b);
+            break;
+          case "-": 
+            a = a - b;
+            break;
+          case "&times": 
+            a = a * b;
+            break;
+          case "&divide": 
+            a = a / b;
+            break;
+        }
+        finish = true;
+        out.textContent = sign;
+        console.log(a, b, sign);
+      }
+
+      const btn = event.target.classList.contains('btn-operator');
+      if (!btn) 
+        return;
+      else if (!event.target.classList.contains('ac')) 
+        return;
+      out.textContent = '0';
+    })
+  });
 };
